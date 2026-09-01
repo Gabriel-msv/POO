@@ -1,28 +1,21 @@
-package br.edu.principal;
-
 import java.util.Scanner;
 
-public class principal {
+public class Principal {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		String nome = "";
+        String nome = "";
         String celular = "";
         String email = "";
-        
         boolean continuar = true;
-		
-		System.out.println("==========================");
-        System.out.println("     AGENDA DE CONTATOS    ");
-        System.out.println("          v0.0.0           ");
+
+        System.out.println("==========================");
+        System.out.println("     AGENDA DE CONTATOS");
+        System.out.println("          V.0.0.0");
         System.out.println("==========================");
 
-        //System.out.println("Bem-vindo!");
-        
         while (continuar) {
-        	System.out.println();
+            System.out.println();
             System.out.println("1 - Adicionar contato");
             System.out.println("2 - Listar contato");
             System.out.println("3 - Procurar contato");
@@ -31,73 +24,63 @@ public class principal {
             System.out.println();
 
             System.out.print("Escolha uma opção: ");
-            int opcao = sc.nextInt();
-            sc.nextLine();
-            
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
+
             switch (opcao) {
-    	        case 1:
-    	        	System.out.println("\n--- ADICIONAR CONTATO ---");
+                case 1:
+                    System.out.println("\n--- ADICIONAR CONTATO ---");
 
                     System.out.print("Nome: ");
-                    nome = sc.nextLine();
+                    nome = scanner.nextLine();
 
                     System.out.print("Celular: ");
-                    celular = sc.nextLine();
+                    celular = scanner.nextLine();
 
                     System.out.print("E-mail: ");
-                    email = sc.nextLine();
+                    email = scanner.nextLine();
 
                     System.out.println("Contato salvo com sucesso!");
                     break;
-    	        case 2:
-    	        	System.out.println("\n--- LISTAR CONTATO ---");
+
+                case 2:
+                    System.out.println("\n--- LISTAR CONTATO ---");
 
                     if (nome.isEmpty()) {
-
                         System.out.println("Nenhum contato cadastrado.");
-
                     } else {
-
                         System.out.println("Nome: " + nome);
                         System.out.println("Celular: " + celular);
                         System.out.println("E-mail: " + email);
                     }
                     break;
-    	        case 3:
-    	        	System.out.println("\n--- PROCURAR CONTATO ---");
 
-    	            if (nome.isEmpty()) {
-
-    	                System.out.println("Nenhum contato cadastrado.");
-
-    	            } else {
-
-    	                System.out.print("Digite o nome que deseja procurar: ");
-    	                String nomeBusca = sc.nextLine();
-
-    	                if (nome.equalsIgnoreCase(nomeBusca)) {
-
-    	                    System.out.println("Contato encontrado!");
-    	                    System.out.println("Nome: " + nome);
-    	                    System.out.println("Celular: " + celular);
-    	                    System.out.println("E-mail: " + email);
-
-    	                } else {
-
-    	                    System.out.println("Contato não encontrado.");
-    	                }
-    	            }
-
-    	            break;
-    	        case 4:
-    	        	System.out.println("\n--- EXCLUIR CONTATO ---");
+                case 3:
+                    System.out.println("\n--- PROCURAR CONTATO ---");
 
                     if (nome.isEmpty()) {
-
                         System.out.println("Nenhum contato cadastrado.");
-
                     } else {
+                        System.out.print("Digite o nome que deseja procurar: ");
+                        String nomeBusca = scanner.nextLine();
 
+                        if (nome.equalsIgnoreCase(nomeBusca)) {
+                            System.out.println("Contato encontrado!");
+                            System.out.println("Nome: " + nome);
+                            System.out.println("Celular: " + celular);
+                            System.out.println("E-mail: " + email);
+                        } else {
+                            System.out.println("Contato não encontrado.");
+                        }
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("\n--- EXCLUIR CONTATO ---");
+
+                    if (nome.isEmpty()) {
+                        System.out.println("Nenhum contato cadastrado.");
+                    } else {
                         nome = "";
                         celular = "";
                         email = "";
@@ -106,16 +89,16 @@ public class principal {
                     }
                     break;
 
-    	        case 5:
-    	        	System.out.println("Saindo...");
+                case 5:
+                    System.out.println("Saindo...");
                     continuar = false;
                     break;
-    	        default:
-    	            System.out.println("Opção inválida!");
-    	    }
+
+                default:
+                    System.out.println("Opção inválida!");
+            }
         }
-        
 
-	}
-
+        scanner.close();
+    }
 }
